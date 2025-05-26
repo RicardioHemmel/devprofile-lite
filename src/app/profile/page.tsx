@@ -4,9 +4,8 @@ import { auth } from "@/lib/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { buscarPerfilPorUID, Perfil } from "@/lib/profileService";
-import Cookies from "js-cookie";
-import { signOut } from "firebase/auth";
 import Link from "next/link";
+import Navbar from "@/components/Navbar";
 
 export default function ProfilePage() {
     const [perfil, setPerfil] = useState<Perfil | null>(null);
@@ -39,12 +38,6 @@ export default function ProfilePage() {
         return () => unsubscribe();
 
     }, [router]);
-
-    const handleLogout = async () => {
-        await signOut(auth);
-        Cookies.remove("token");
-        router.push("/login");
-      };
 
     if (isLoading) {
         return (
@@ -83,17 +76,7 @@ export default function ProfilePage() {
         <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
                 {/* Cabeçalho */}
-                <nav className="flex justify-between items-center mb-8">
-                    <h1 className="text-3xl text-white rounded-full px-6 py-2 font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-300">
-                        devprofile-lite
-                    </h1>
-                    <button
-                        onClick={handleLogout}
-                        className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm font-medium transition-colors cursor-pointer"
-                    >
-                        Sair
-                    </button>
-                </nav>
+                <Navbar/>
 
                 {/* Card do Perfil */}
                 <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl shadow-2xl border border-gray-700 overflow-hidden">

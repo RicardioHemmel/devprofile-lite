@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+README
+💻 DevProfile Lite
+DevProfile Lite é um protótipo simples de autenticação e visualização de perfil feito com React.js e Firebase. O objetivo é permitir que usuários se cadastrem, façam login e visualizem informações básicas do seu perfil armazenadas no Cloud Firestore.
 
-## Getting Started
+Link do projeto hospedado no Vercel: https://devprofile-lite.vercel.app/
 
-First, run the development server:
+🚀 Tecnologias Utilizadas
+React.js – Biblioteca JavaScript para criação de interfaces.
+React Router DOM – Gerenciamento de rotas na aplicação.
+Firebase Authentication – Sistema de autenticação de usuários com email e senha.
+Firebase Firestore – Banco de dados NoSQL para armazenamento dos perfis.
+Tailwind CSS – Framework de CSS utilitário para estilização responsiva e moderna.
+🛠️ Como configurar e rodar localmente
+1. Clone o repositório
+git clone https://github.com/Gabuka/devprofile-lite
+cd devprofile-lite
+2. Instale as dependências
+npm install
+3. Configure o Firebase
+Acesse: https://console.firebase.google.com
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Crie um novo projeto.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Habilite Authentication > Email/Senha.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Ative o Firestore Database.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+No menu lateral, vá em Configurações do Projeto > Suas credenciais Web.
 
-## Learn More
+Adicione um novo app ao projeto: Visão geral do projeto > Adicionar app (Web).
 
-To learn more about Next.js, take a look at the following resources:
+De um nome ao app e registre.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Após isso, copie os dados do SDK para o próximo passo.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. Atualize o arquivo 'src/firebase.js'
+Preencha com suas credenciais Firebase:
 
-## Deploy on Vercel
+apiKey: "SUA_CHAVE_API",
+authDomain: "SEU_PROJETO.firebaseapp.com",
+projectId: "dSEU_PROJETO",
+storageBucket: "SEU_PROJETO.appspot.com",
+messagingSenderId: "NUMERO",
+appId: "SEU_APP_ID"
+5. Execute o projeto e cadastre um usuário
+npm start
+Acesse em: http://localhost:3000
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Siga as instruções da página para criar um novo cadastro.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+6. Configure dados do usuário cadastrado no Firestore
+Após registrar um usuário
+
+No console do Firestore, crie manualmente:
+
+Coleção: userProfiles
+
+Documento: <UID do usuário autenticado>
+
+Campos:
+
+{
+  "nomeCompleto": "Seu nome",
+  "bioCurta": "Uma breve descrição",
+  "linkPortfolio": "https://seuportfolio.com"
+}
+Nota: O UID pode ser obtido após o login no Firebase Authentication.
+
+Depois disso, quando esse usuário fizer login, seus dados serão importados e exibidos na tela do Perfil.
+
+📂 Estrutura do Projeto
+src/
+├── components/
+│   ├── ProtectedRoute.js
+├── pages/
+│   ├── Login.js
+│   ├── Cadastro.js
+│   ├── Perfil.js
+├── firebase.js
+├── firebaseErrorMessages.js
+├── App.js
+📌 Funcionalidades
+✅ Cadastro com email e senha
+
+✅ Login e logout
+
+✅ Visualização de perfil com dados do Firestore
+
+✅ Rotas protegidas para usuários autenticados
+
+✅ Interface responsiva com Tailwind CSS
+

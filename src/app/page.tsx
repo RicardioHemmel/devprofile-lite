@@ -26,7 +26,7 @@ export default function Home() {
         </div>
 
         {/* Título */}
-        <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-300">
+        <h1 className="text-4xl text-white rounded-full px-8 py-4 md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-300">
           devprofile-lite
         </h1>
 

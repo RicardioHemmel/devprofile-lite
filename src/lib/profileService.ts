@@ -3,9 +3,15 @@ import { db } from "@/lib/firebase";
 import { doc, getDoc } from "firebase/firestore";
 
 export interface Perfil {
+  uid: string;
   nomeCompleto: string;
-  bioCurta: string;
-  linkPortfolio: string;
+  bioCurta?: string;
+  cargo?: string;
+  capa?: string;
+  foto?: string;
+  linkPortfolio?: string;
+  habilidades?: string[];
+  experiencias?: string[];
 }
 
 export async function buscarPerfilPorUID(uid: string): Promise<Perfil | null> {

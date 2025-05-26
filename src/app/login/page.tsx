@@ -52,7 +52,7 @@ export default function LoginPage() {
                             />
                         </svg>
                     </div>
-                    <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-300 mb-2">
+                    <h1 className="text-3xl text-white rounded-full py-2 font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-300 mb-2">
                         devprofile-lite
                     </h1>
                     <p className="text-gray-400">Acesse sua conta</p>
